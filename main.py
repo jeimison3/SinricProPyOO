@@ -1,5 +1,5 @@
 from clientwrapper import ClientWrapper
-from devices.thing import Thing
+from devices.things import Thing, Light, DimmerSwitch
 
 from credentials import appKey,secretKey
 from credentials import thing_1
@@ -19,11 +19,11 @@ def light1_powerState(arg):
 
 
 if __name__ == '__main__':
-    th1 = Thing(thing_1)
-    wrap = ClientWrapper([th1], appKey, secretKey)
 
-    th1.subscribe_event("setPowerLevel", light1_setPowerLevel)
-    th1.subscribe_event("powerState", light1_powerState)
+    light1 = DimmerSwitch(thing_1)
+    wrap = ClientWrapper([light1], appKey, secretKey)
+
+    light1.setPowerLevel(light1_setPowerLevel)
+    light1.setPowerState(light1_powerState)
     
-
     wrap.setup()

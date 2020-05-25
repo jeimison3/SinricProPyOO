@@ -40,7 +40,7 @@ class ClientWrapper:
     def inscribe(self, thing, event_name, func):
         if not (event_name in self.events):
             self.events[event_name] = list()
-        self.events[event_name].append({'thing':thing,'func':func, 'event':event_name})
+        self.events[event_name].append({'thing':thing,'func':func})
 
 
 
