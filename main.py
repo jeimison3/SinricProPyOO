@@ -20,10 +20,10 @@ def light1_powerState(arg):
 
 if __name__ == '__main__':
 
-    light1 = DimmerSwitch(thing_1)
-    wrap = ClientWrapper([light1], appKey, secretKey)
+    powerPlug1 = DimmerSwitch(thing_1)
+    wrap = ClientWrapper([powerPlug1], appKey, secretKey)
 
-    light1.setPowerLevel(light1_setPowerLevel)
-    light1.setPowerState(light1_powerState)
+    powerPlug1.setPowerLevel(light1_setPowerLevel)
+    powerPlug1.setPowerState(light1_powerState)
     
     wrap.setup()
