@@ -1,21 +1,27 @@
-import clientwrapper
+from clientwrapper import ClientWrapper
 
 
 class Thing:
-    dev_id = None # Dispositivos > Dispositivo > Copiar
+    dev_id = "" # Dispositivos > Dispositivo > Copiar
     wrap_instance = None
+    events_list = []
 
-    def __init__(self,dev_id):
+    def __init__(self, dev_id:str):
         self.dev_id = dev_id
 
-    def set_wrapper(self,wrap_instance):
+    def set_wrapper(self, wrap_instance:ClientWrapper):
         self.wrap_instance = wrap_instance
 
     def get_dev_id(self):
         return self.dev_id
 
-    def subscribe_event(self, event_name, func):
-        self.wrap_instance.inscribe(self, event_name, func)
+    def subscribe(self):
+        for event in self.events_list:
+            self.wrap_instance.inscribe(self, event[0], event[1])
+
+    def subscribe_event(self, event_name:str, func):
+        self.events_list.append([event_name, func])
+        
 
 
 class Light(Thing):
@@ -26,7 +32,7 @@ class Light(Thing):
     # onIncreaseColorTemperature = None
     # onDecreaseColorTemperature = None
 
-    def __init__(self,dev_id):
+    def __init__(self,dev_id:str):
         super().__init__(dev_id)
 
     def setOnPowerState(self,fun):
@@ -58,7 +64,7 @@ class DimmerSwitch(Thing):
     # onPowerState = None
     # onAdjustBrightness = None
     
-    def __init__(self,dev_id):
+    def __init__(self,dev_id:str):
         super().__init__(dev_id)
 
     def setPowerLevel(self,fun):

@@ -11,11 +11,13 @@ class ClientWrapper:
     def __init__(self, things, appKey, secretKey):
         for thing in things:
             thing.set_wrapper(self)
+            thing.subscribe()
             self.deviceIdArr.append(thing.get_dev_id())
         self.appKey = appKey
         self.secretKey = secretKey
+        
 
-    def setup(self):
+    def start(self):
         client = SinricPro(self.appKey, self.deviceIdArr, self.getCallbacks(), event_callbacks=self.eventsCallbacks, enable_log=False,restore_states=True,secretKey=self.secretKey)
         udp_client = SinricProUdp(self.getCallbacks(), self.deviceIdArr,enable_trace=False)  # Set it to True to start logging request Offline Request/Response
         client.handle_all(udp_client)
@@ -33,7 +35,7 @@ class ClientWrapper:
         if len(self.events) > 0:
             for key, receivers in self.events.items():
                 #print("RECV=",receivers)
-                callbs[key] = lambda dev_id, *arg,recv=receivers,: self.run_match_dev_id(dev_id,recv,locals()['arg'])
+                callbs[key] = lambda dev_id, *arg, recv=receivers: self.run_match_dev_id(dev_id,recv,locals()['arg'])
         
         return callbs
     
