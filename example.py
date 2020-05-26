@@ -1,11 +1,11 @@
-from clientwrapper import ClientWrapper
-from devices.things import Thing, Light, DimmerSwitch
+from classes.clientwrapper import ClientWrapper
+from classes.things import Thing, Light, DimmerSwitch
 
 from credentials import appKey,secretKey
 from credentials import thing_1
 
 
-''' 
+'''
 Implemented functions for dimming light
 '''
 
@@ -19,7 +19,6 @@ def plug1_powerState(arg):
 
 
 if __name__ == '__main__':
-
     powerPlug1 = DimmerSwitch(thing_1)
     powerPlug1.setPowerLevel(plug1_setPowerLevel)
     powerPlug1.setPowerState(plug1_powerState)
@@ -28,6 +27,6 @@ if __name__ == '__main__':
 
     wrap = ClientWrapper(devices, appKey, secretKey)
     
-    # Do some stuff
+    # Do some stuff ...
 
     wrap.start()
