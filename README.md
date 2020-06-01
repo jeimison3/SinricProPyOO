@@ -13,8 +13,8 @@ from classes.things import Switch # All used classes
 ### In practice
 ```python
 
-def plug1_setPowerLevel(arg):
-    print("powerPlug1 setPowerLevel=",arg)
+def plug1_powerState(arg):
+    print("powerPlug1 powerState=",arg)
     return True,arg[0]
     
 powerPlug1 = Switch(thing_1)
