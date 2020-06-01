@@ -27,7 +27,6 @@ class ClientWrapper:
         callbs = {}
         if len(self.events) > 0:
             for key, receivers in self.events.items():
-                #print("RECV=",receivers)
                 callbs[key] = lambda dev_id, *arg, recv=receivers: self.run_match_dev_id(dev_id,recv,locals()['arg'])
         
         # Instantiate client (setup connections)
