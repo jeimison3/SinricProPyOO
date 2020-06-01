@@ -1,11 +1,13 @@
 # Python3 Object-Oriented Programming for SinricPro
 **A virtual device library integrable with Alexa for Python coding.**
 
+## Dependences:
+[sinric-pro python-sdk](https://github.com/sinricpro/python-sdk): `pip install sinricpro --user`
 ## Code implements
 ### Imports
 ```python
 from classes.clientwrapper import ClientWrapper
-from classes.things import ... #[used classes]
+from classes.things import Switch # All used classes
 ```
 
 ### In practice
