@@ -1,4 +1,4 @@
-# Python Object Oriented for SinricPro
+# Python3 Object-Oriented Programming for SinricPro
 **A virtual device library integrable with Alexa for Python coding.**
 
 ## Code implements
