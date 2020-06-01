@@ -18,9 +18,11 @@ def plug1_powerState(arg):
     return True,arg[0]
 
 
+
 '''
 Implemented functions for light
 '''
+
 def light1_powerState(arg):
     print("light1 powerState=",arg)
     return True,arg[0]
