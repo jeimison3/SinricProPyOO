@@ -38,7 +38,6 @@ wrap.start()
 | setPowerState | `str` arg[0]: 'On' or 'Off' |
 | setPowerLevel | `int` arg[0]: 1..100 |
 
-
 ### Light
 | Function | Attributes |
 | --- | --- |
@@ -46,3 +45,15 @@ wrap.start()
 | setOnSetBrightness | `int` arg[0]: 1..100 |
 | setOnSetColor | `int` arg[0]: 0-255; `int` arg[1]: 0-255; `int` arg[2]: 0-255  |
 | setOnSetColorTemperature | `int` arg[0]: temperature in K |
+
+### TV
+| Function | Attributes |
+| --- | --- |
+| setPowerState | `str` arg[0]: 'On' or 'Off' |
+| setVolume | `int` arg[0]: 0..100 |
+| adjustVolume | `int` arg[0]: -100..100 |
+| setMute | `bool` arg[0]: True/False |
+| mediaControl | `str` arg[0]: 'Play','Pause','FastForward','Rewind','Next','Previous' |
+| selectInput | `str` arg[0]: 'HDMI', ... |
+| changeChannel | `str` arg[0]: channelName |
+| skipChannels | `int` arg[0]: N |

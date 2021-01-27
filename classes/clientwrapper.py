@@ -1,5 +1,6 @@
 from sinric import SinricPro
 from sinric import SinricProUdp
+from classes.things import Thing
 
 class ClientWrapper:
     """ ClientWrapper for comunicate classes and things.\n
@@ -20,6 +21,7 @@ class ClientWrapper:
         self.appKey = appKey
         self.secretKey = secretKey
         
+        
     
     def start(self):
         ''' Start clients and setup connection '''
@@ -29,10 +31,11 @@ class ClientWrapper:
             for key, receivers in self.events.items():
                 callbs[key] = lambda dev_id, *arg, recv=receivers: self.run_match_dev_id(dev_id,recv,locals()['arg'])
         
+        self.client = SinricPro(self.appKey, self.deviceIdArr, callbs, event_callbacks=self.eventsCallbacks, enable_log=False,restore_states=True,secretKey=self.secretKey)
+        
         # Instantiate client (setup connections)
-        client = SinricPro(self.appKey, self.deviceIdArr, callbs, event_callbacks=self.eventsCallbacks, enable_log=False,restore_states=True,secretKey=self.secretKey)
         udp_client = SinricProUdp(callbs, self.deviceIdArr,enable_trace=False)  # Set it to True to start logging request Offline Request/Response
-        client.handle_all(udp_client)
+        self.client.handle_all(udp_client)
         self.logger = client.logger
         self.logger.success("SinricProOO started!")
 
@@ -48,14 +51,21 @@ class ClientWrapper:
             self.events[event_name] = list()
         self.events[event_name].append({'thing':thing,'func':func})
 
+    def raiseEvent(self, thing : Thing, event : str, dados):
+        ''' Event listed on https://help.sinric.pro/pages/supported_devices.html '''
+        self.client.event_handler.raiseEvent(thing.get_dev_id(), event,data=dados)
+        
+
 
 
     def Events():
-        while True:
+        pass
+        # print("Evento.")
+        # while True:
             # client.event_handler.raiseEvent(device1, 'setPowerState',data={'state': 'On'})
             # client.event_handler.raiseEvent(device1, 'setPowerLevel',data={'powerLevel': '95%'})
             #sleep(2)
-            pass
+            # pass
 
     eventsCallbacks={
         "Events": Events
