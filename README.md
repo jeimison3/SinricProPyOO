@@ -1,4 +1,4 @@
-# Python3 Object-Oriented Programming for SinricPro
+# Alexa reactive interface Python3-OO (w/ SinricPro)
 **A virtual device library integrable with Alexa for Python coding.**
 
 ## Dependences:
@@ -18,9 +18,9 @@ def plug1_powerState(arg):
     return True,arg[0]
     
 powerPlug1 = Switch(thing_1)
-powerPlug1.setPowerState(plug1_powerState)
+powerPlug1.powerState(plug1_powerState)
     
-devices = [powerPlug1] # your instanced devices class
+devices = [powerPlug1] # your device objects
 wrap = ClientWrapper(devices, appKey, secretKey)
 wrap.start()
 ```
@@ -30,13 +30,13 @@ wrap.start()
 ### Switch
 | Function | Attributes |
 | --- | --- |
-| setPowerState | `str` arg[0]: 'On' or 'Off' |
+| powerState | `str` arg[0]: 'On' or 'Off' |
 
 ### DimmerSwitch
 | Function | Attributes |
 | --- | --- |
-| setPowerState | `str` arg[0]: 'On' or 'Off' |
-| setPowerLevel | `int` arg[0]: 1..100 |
+| powerState | `str` arg[0]: 'On' or 'Off' |
+| powerLevel | `int` arg[0]: 1..100 |
 
 ### Light
 | Function | Attributes |
