@@ -21,9 +21,7 @@ class Thing:
         
 
 class Switch(Thing):
-    ''' Switch on/off state.\n
-    dev_id -> deviceId
-    '''
+    ''' Switch on/off state interface. '''
     def setPowerState(self,fun):
         '''
         arg[0]: str 'On'-'Off'
@@ -34,9 +32,7 @@ class Switch(Thing):
 
 
 class Light(Switch):
-    ''' Light with colors and temperature settings.\n
-    dev_id -> deviceId
-    '''
+    ''' Light with colors and temperature interface. '''
 
     def setOnSetBrightness(self,fun):
         self.enqueue_event("setBrightness", fun)
@@ -62,9 +58,7 @@ class Light(Switch):
 
 
 class DimmerSwitch(Switch):
-    ''' Dimmer switch with power level settings.\n
-    dev_id -> deviceId
-    '''
+    ''' Dimmer Switch interface. '''
 
     def setPowerLevel(self,fun):
         '''
@@ -74,9 +68,7 @@ class DimmerSwitch(Switch):
 
 
 class TV(Switch):
-    ''' Dimmer switch with power level settings.\n
-    dev_id -> deviceId
-    '''
+    ''' TV interface. '''
 
     def setVolume(self,fun):
         '''

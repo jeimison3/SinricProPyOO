@@ -43,7 +43,7 @@ wrap.start()
 | --- | --- |
 | setPowerState | `str` arg[0]: 'On' or 'Off' |
 | setOnSetBrightness | `int` arg[0]: 1..100 |
-| setOnSetColor | `int` arg[0]: 0-255; `int` arg[1]: 0-255; `int` arg[2]: 0-255  |
+| setOnSetColor | `int` arg[0]: 0-255<br>`int` arg[1]: 0-255<br>`int` arg[2]: 0-255  |
 | setOnSetColorTemperature | `int` arg[0]: temperature in K |
 
 ### TV
