@@ -27,15 +27,15 @@ def light1_powerState(arg):
     print("light1 powerState=",arg)
     return True,arg[0]
 
-def light1_onSetBrightness(arg):
+def light1_setBrightness(arg):
     print("light1 setBrightness=",arg)
     return True, arg[0]
 
-def light1_onSetColor(arg):
+def light1_setColor(arg):
     print("light1 onSetColor=",arg)
     return True, arg[0]
 
-def light1_onSetColorTemperature(arg):
+def light1_setColorTemperature(arg):
     print("light1 setColorTemperature=",arg)
     return True, arg[0]
 
@@ -46,10 +46,10 @@ if __name__ == '__main__':
     powerPlug1.setPowerState(plug1_powerState)
 
     light1 = Light(thing_2)
-    light1.setPowerState(light1_powerState)
-    light1.setOnSetColor(light1_onSetColor)
-    light1.setOnSetColorTemperature(light1_onSetColorTemperature)
-    light1.setOnSetBrightness(light1_onSetBrightness)
+    light1.powerState(light1_powerState)
+    light1.setColor(light1_setColor)
+    light1.setColorTemperature(light1_setColorTemperature)
+    light1.setBrightness(light1_setBrightness)
 
 
     devices = [powerPlug1, light1]

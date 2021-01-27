@@ -22,7 +22,7 @@ class Thing:
 
 class Switch(Thing):
     ''' Switch on/off state interface. '''
-    def setPowerState(self,fun):
+    def powerState(self,fun):
         '''
         arg[0]: str 'On'-'Off'
         '''
@@ -34,23 +34,23 @@ class Switch(Thing):
 class Light(Switch):
     ''' Light with colors and temperature interface. '''
 
-    def setOnSetBrightness(self,fun):
+    def setBrightness(self,fun):
         self.enqueue_event("setBrightness", fun)
         # self.onAdjustBrightness = fun
 
-    def setOnSetColor(self,fun):
+    def setColor(self,fun):
         self.enqueue_event("setColor", fun)
         # self.onSetColor = fun
     
-    def setOnSetColorTemperature(self,fun):
+    def setColorTemperature(self,fun):
         self.enqueue_event("setColorTemperature", fun)
         # self.onSetColorTemperature = fun
 
-    def setOnIncreaseColorTemperature(self,fun):
+    def increaseColorTemperature(self,fun):
         self.enqueue_event("increaseColorTemperature", fun)
         # self.onIncreaseColorTemperature = fun
         
-    def setOnDecreaseColorTemperature(self,fun):
+    def decreaseColorTemperature(self,fun):
         self.enqueue_event("decreaseColorTemperature", fun)
         # self.onDecreaseColorTemperature = fun
 

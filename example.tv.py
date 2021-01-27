@@ -45,7 +45,7 @@ def tv_skipChannels(arg):
 if __name__ == '__main__':
 
     tv = TV(thing_1)
-    tv.setPowerState(tv_powerState)
+    tv.powerState(tv_powerState)
     tv.setVolume(tv_setVolume)
     tv.adjustVolume(tv_adjustVolume)
     tv.setMute(tv_setMute)
